@@ -1,6 +1,6 @@
 # IEiT 2021/2026 TESTS
 ## TL;DR
-Repozytorium z testami oraz skryptami, które ułatwiom wam życie oraz szukanie błędów.
+Repozytorium z testami oraz skryptami, ułatwi wam życie oraz szukanie błędów.
 
 ## make_output.sh
 Prosty dwuagrumentowy skrypt napisany w języku **bash**, który pozwoli na wygenerowanie 
