@@ -11,5 +11,5 @@ for file in $2/*.in; do
     fi
 
     end=`date +%s%N`
-    printf "\n%.3f%s\n" $(((end-start)/(10**6)))e-3 s
+    printf "%.3f%s\n\n" $(((end-start)/(10**6)))e-3 s
 done
