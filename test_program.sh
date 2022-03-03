@@ -1,7 +1,7 @@
 #!/bin/sh
 
 TIME_MAX=0
-MEMORY_MAX=0
+TIME_MAX_NAME=0
 
 for file in $2/*.in; do
     start=`date +%s%N`
@@ -27,6 +27,5 @@ for file in $2/*.in; do
     fi
 done
 
-printf "All tests passed!\n\n"
 printf "Max time: %.3fs\n" $(( TIME_MAX ))e-3
 printf "Test name: %s\n\n" $TIME_MAX_NAME
