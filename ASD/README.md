@@ -6,9 +6,10 @@ W odpowiednich katalogach z ćwiczeń każde zadanie o nazwie "XYZ" zawiera 3 pl
 2. XYZ_make_test.py: Plik odpowiadający za automatyczne generowanie testów.
 3. XYZ.zip: Spakowane testy
 
-Aby sprawdzić poprawność swojego programu należy swoje rozwiązanie zapisać jako "XYZ_S.py" 
-a następnie umieścić ten plik wraz z "XYZ.py" oraz z wypakowanymi z zipa do katalogu XYZ testami.
-Sprawdzenie automatyczne testów nastąpi po wpisaniu w odpowiednim katalogu komendy 
+Aby sprawdzić poprawność swojego programu należy swoje rozwiązanie zapisać jako "XYZ_S.py" (funkcję, 
+która jest wymagana należy nazwać "funkcja") a następnie umieścić ten plik wraz z "XYZ.py" oraz 
+z wypakowanymi z zipa do katalogu XYZ testami. Sprawdzenie automatyczne testów nastąpi po wpisaniu 
+w odpowiednim katalogu komendy 
 
 **./test_program.sh XYZ.py XYZ** (Linux)
 
