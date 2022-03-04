@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 TIME_MAX=0
 TIME_MAX_NAME=0
