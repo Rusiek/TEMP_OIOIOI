@@ -4,7 +4,9 @@ Repozytorium z testami oraz skryptami, ułatwi wam życie oraz szukanie błędó
 
 ## bash
 ### Linux
-Tutaj powinno wszyskto działać. Skrypty uruchamiane tak jak na zajęciach
+Tutaj powinno wszyskto działać. Skrypty uruchamiane tak jak na zajęciach. Możliwy błąd końca lini.
+Rozwiązanie problemu końca linii znalezione by Jakub Pisarek:
+https://askubuntu.com/questions/304999/not-able-to-execute-a-sh-file-bin-bashm-bad-interpreter
 
 ### Windowsie
 Póki problem nie zostanie rozwiązany polecam ustawienie sobie basha na działającego z konsoli
