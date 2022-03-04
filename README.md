@@ -2,11 +2,18 @@
 ## TL;DR
 Repozytorium z testami oraz skryptami, ułatwi wam życie oraz szukanie błędów.
 
-## bash
-### Linux
-Tutaj powinno wszyskto działać. Skrypty uruchamiane tak jak na zajęciach. Możliwy błąd końca lini.
+Możliwy błąd końca lini w skryptach.
+
 Rozwiązanie problemu końca linii znalezione by Jakub Pisarek:
 https://askubuntu.com/questions/304999/not-able-to-execute-a-sh-file-bin-bashm-bad-interpreter
+Dwie komendy do naprawienia skryptów:  
+sed -i -e 's/\r$//' test_program.sh  
+sed -i -e 's/\r$//' make_output.sh  
+Albo przepisanie ponownie skryptów
+
+## bash
+### Linux
+Tutaj powinno wszyskto działać. Skrypty uruchamiane tak jak na zajęciach.
 
 ### Windowsie
 Póki problem nie zostanie rozwiązany polecam ustawienie sobie basha na działającego z konsoli
