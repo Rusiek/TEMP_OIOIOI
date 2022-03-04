@@ -3,11 +3,13 @@
 Repozytorium z testami oraz skryptami, ułatwi wam życie oraz szukanie błędów.
 
 Możliwy błąd końca lini w skryptach.
+
 Rozwiązanie problemu końca linii znalezione by Jakub Pisarek:
 https://askubuntu.com/questions/304999/not-able-to-execute-a-sh-file-bin-bashm-bad-interpreter
-Dwie komendy do naprawienia skryptów:
-sed -i -e 's/\r$//' test_program.sh
-sed -i -e 's/\r$//' make_output.sh
+Dwie komendy do naprawienia skryptów:  
+sed -i -e 's/\r$//' test_program.sh  
+sed -i -e 's/\r$//' make_output.sh  
+Albo przepisanie ponownie skryptów
 
 ## bash
 ### Linux
