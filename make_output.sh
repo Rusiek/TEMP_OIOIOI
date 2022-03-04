@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 for file in $2/*.in; do
     output=${file%.in}.out
