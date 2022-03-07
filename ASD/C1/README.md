@@ -16,6 +16,9 @@ C: Duży test sprawdzający wydajność programu o złożoności O(q*log(n)). Ta
 przedziału <-10^9, 10^9>. Liczba zapytań **q** wynosi 10^5. Czas wykonania zależy od sprzętu, powinien się 
 mieścić w 2s.
 
+## Przykładowe rozwiązanie
+Przykładowe rozwiązanie o złożoności O(q*log(n)) nazywa się **BIN_S.py**
+
 # CAT
 Napisz funkcję która za argumenty przyjmie kolejno posortowaną rosnąco tablicę liczb całkowitych
 **TAB** oraz nieujemną liczbę całkowitą **x**. Funkcja zwraca "True" jeżeli istnieją w tablicy takie dwie liczby,

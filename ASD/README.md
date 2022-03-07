@@ -16,3 +16,5 @@ w odpowiednim katalogu komendy
 lub
 
 **bash test_program.sh XYZ.py XYZ** (Windows)
+
+Można założyć że dane podane na wejściu będą prawidłowe.
