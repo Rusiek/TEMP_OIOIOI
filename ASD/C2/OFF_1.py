@@ -1,31 +1,31 @@
+from doctest import OutputChecker
 import zad1
 
 class Node:
-  def __init__(self):
-    self.val = None
-    self.next = None
-
-
-def tab2list(t):
-    n = len(t)
-    p = None
-
-    for i in range(n-1,-1,-1):
-        q = Node()
-        q.val = t[i]
-        q.next = p
-        p = q
-
-    return p
-
+    def __init__(self):
+        self.val    =   None
+        self.next   =   None
 
 def list2tab(l):
-    t = []
-    while l!=None:
-        t.append(l.val)
+    output = []
+
+    while l != None:
+        output.append(l.val)
         l = l.next
 
-    return t
+    return output
+
+def tab2list(tab):
+    head        =   Node()
+    head.val    =   tab[0]
+    temp        =   head
+
+    for i in range(1, len(tab)):
+        temp.next   =   Node()
+        temp        =   temp.next
+        temp.val    =   tab[i]
+
+    return head
 
 
 k = int(input())
@@ -38,10 +38,9 @@ for i in range(len(data)):
     else:
         data[i] = float(data[i])
     
-data    =   tab2list(data)
-output  =   zad1.SortH(data, k)
-output  =   list2tab(output)
-data.sort()
+linked_list     =   tab2list(data)
+linked_list     =   zad1.SortH(linked_list, k)
+output          =   list2tab(linked_list)
 
-for i in data:
+for i in output:
     print(i, end=" ")
