@@ -2,7 +2,17 @@
 ## TL;DR
 Repozytorium z testami oraz skryptami, ułatwi wam życie oraz szukanie błędów.
 
-Możliwy błąd końca lini w skryptach.
+## python
+Skrypt do sprawdzania składa się z dwóch części:
+
+1. test_program: Skrypt przyjmuje jeden argument - paczkę z pogrupowanymi testami. Następnie wywołuje
+sprawdzenie testów dla każdego z podkatalogów w podanym argumencie oraz zdaje raport.
+2. check.py: Pomocniczy skrypt odpowiadający za mierzenie czasu wykonania funkcji.
+
+Sprawdzaną funkcję oraz bibliotekę należy wpisać w pierwszej po komentarzu linii w check.py
+
+## bash
+Możliwy błąd końca lini w skryptach bashowych.
 
 Rozwiązanie problemu końca linii znalezione by Jakub Pisarek:
 https://askubuntu.com/questions/304999/not-able-to-execute-a-sh-file-bin-bashm-bad-interpreter
@@ -11,7 +21,6 @@ sed -i -e 's/\r$//' test_program.sh
 sed -i -e 's/\r$//' make_output.sh  
 Albo przepisanie ponownie skryptów
 
-## bash
 ### Linux
 Tutaj powinno wszyskto działać. Skrypty uruchamiane tak jak na zajęciach.
 
