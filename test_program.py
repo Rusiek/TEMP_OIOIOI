@@ -1,52 +1,34 @@
 import sys
 import os
 import re
-from time           import time
-from program        import funkcja
+from check  import  check_program
 
 MAX_TIME        =   1
 MAX_MEMORY      =   1
 RAPORT_WRONG    =   5
 
 
+def list_error(tab, string):
+    output = ""
+    if tab != []:
+        output  +=  string    
+        for test in range(min(len(tab), RAPORT_WRONG)):
+            output  +=  f"{tab[test]}   "
+        if len(tab) > RAPORT_WRONG:
+            output  +=  f"and {len(tab) - RAPORT_WRONG} more"
+        output  += "\n"
+    return output
+
+
 def raport(tab):
     output  =   f"TEST OK:          {tab[0]}\n"
     output  +=  f"TEST ERROR:       {tab[1]}\n"
     output  +=  f"MAX TIME:         {round(tab[2], 3)}s\n"
-    # Add Memory Raport:
-    if tab[4] != []:
-        output  +=  f"WRONG OUTPUT:     "    
-        for test in range(min(len(tab[4]), RAPORT_WRONG)):
-            output  +=  f"{tab[4][test]} "
-        output  += "\n"
-    if tab[5] != []:
-        output  +=  f"TIME EXCEEDED:    "    
-        for test in range(min(len(tab[5]), RAPORT_WRONG)):
-            output  +=  f"{tab[5][test]} "
-        output  += "\n"
-    # Add memory exceeded
-
+    # Add Memory Raport: tab[3]
+    output += list_error(tab[4], 'WRONG OUTPUT:     ')
+    output += list_error(tab[5], 'TIME EXCEEDED:    ')
+    output += list_error(tab[6], 'MEMORY EXCEEDED:  ')
     print(output)
-
-def check_program(path, test):
-    MEMORY  =   0
-
-    file_in     =   open(f"{path}/{test}.in", "r")
-    file_out    =   open(f"{path}/{test}.out", "r")
-
-    # Add function use
-    start   =   time()
-    output  =   funkcja(3)
-    end     =   time()
-
-    str(output)
-    OK      =   output == file_out
-    TIME    =   end - start
-
-    file_out.close()
-    file_in.close()
-
-    return OK, TIME, MEMORY
 
 
 # Test directory
@@ -80,10 +62,10 @@ def check_dir(path):
 
 # Find all .in/.out files in subdirectories
 if __name__ == "__main__":
-    for path in os.walk(sys.argv[2]):
-        if sys.argv[2] != path[0] and os.path.isdir(sys.argv[2]):
+    for path in os.walk(sys.argv[1]):
+        if sys.argv[1] != path[0] and os.path.isdir(sys.argv[1]):
             output  =   check_dir(path[0])
-            if output[0] + output[1] != 0:
+            if output[0] + output[1]:
                 print(f"RAPORT FOR:       {path[0]}")
                 raport(output)
                 
