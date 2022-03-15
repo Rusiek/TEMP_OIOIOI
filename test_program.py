@@ -1,12 +1,18 @@
 import sys
 import os
 import re
-import gc
+from time import time
 from subprocess import Popen, PIPE
 
-MAX_TIME        =   1
+MAX_TIME        =   0.15
 MAX_MEMORY      =   2 ** 20
 RAPORT_WRONG    =   5
+
+def clearConsole():
+    command = 'clear'
+    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'cls'
+    os.system(command)
 
 # Change B to KB, MB or GB
 def memory_to_human(val):
@@ -39,6 +45,7 @@ def raport(tab):
     output  =   f"TEST OK:          {tab[0]}\n"
     output  +=  f"TEST ERROR:       {tab[1]}\n"
     output  +=  f"MAX TIME:         {round(tab[2], 3)}s\n"
+    output  +=  f"AVG TIME:         {round(tab[7] / (tab[0] + tab[1]), 3)}s\n"
     # if tab[3] < 10 ** 5:
     #     output  +=  f"MAX MEMORY:       LESS THAN 100KB\n"
     # else:
@@ -53,6 +60,7 @@ def check_dir(path):
     OK              =   0
     ERROR           =   0
     MAX_U_TIME      =   0
+    AVG_U_TIME      =   0
     MAX_U_MEMORY    =   0
     OUTPUT_LIST     =   []
     TIME_LIST       =   []
@@ -64,10 +72,15 @@ def check_dir(path):
             counter_path    =   str(path).count("\\")
             counter_file    =   str(os.path.join(root, file)).count("\\")
             if counter_file - counter_path == 1:
-                pattern     =   '\.in$'
+                start, end = time(), time()
+                while end - start > 1:
+                    end = time()
+
+                pattern     =   '\\.in$'
                 # If file name is '.in$' 
                 if re.search(pattern, file):
                     # Run subprocess and prepare data
+                    print(f"TESTING FILE {os.path.join(root, file)}")
                     proc    =   Popen(f'python check.py {str(os.path.join(root, file))}', stdout=PIPE)
                     prog  =   proc.communicate()
                     prog  =   str(prog[0])
@@ -87,9 +100,10 @@ def check_dir(path):
 
                     MAX_U_TIME      =   max(MAX_U_TIME, prog[1])
                     MAX_U_MEMORY    =   max(MAX_U_MEMORY, prog[2])
+                    AVG_U_TIME      +=  prog[1]
 
 
-    return [OK, ERROR, MAX_U_TIME, MAX_U_MEMORY, OUTPUT_LIST, TIME_LIST, MEMORY_LIST]
+    return [OK, ERROR, MAX_U_TIME, MAX_U_MEMORY, OUTPUT_LIST, TIME_LIST, MEMORY_LIST, AVG_U_TIME]
 
 # Core
 if __name__ == "__main__":
@@ -97,7 +111,9 @@ if __name__ == "__main__":
         if sys.argv[1] != path[0] and os.path.isdir(sys.argv[1]):
             output  =   check_dir(path[0])
             if output[0] + output[1]:
-                print(f"RAPORT FOR:       {path[0]}")
+                clearConsole()
+                print(f"\nRAPORT FOR:       {path[0]}")
                 raport(output)
-                gc.collect()
+                print(f"ENTER ANYTHING TO END TESTING {path[0]}: ", end = "")
+                temp = input()
                 
