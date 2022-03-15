@@ -5,11 +5,18 @@ Repozytorium z testami oraz skryptami, ułatwi wam życie oraz szukanie błędó
 ## python
 Skrypt do sprawdzania składa się z dwóch części:
 
-1. test_program: Skrypt przyjmuje jeden argument - paczkę z pogrupowanymi testami. Następnie wywołuje
+1. test_program.py: Skrypt przyjmuje jeden argument - paczkę z pogrupowanymi testami. Następnie wywołuje
 sprawdzenie testów dla każdego z podkatalogów w podanym argumencie oraz zdaje raport.
 2. check.py: Pomocniczy skrypt odpowiadający za mierzenie czasu wykonania funkcji.
 
-Sprawdzaną funkcję oraz bibliotekę należy wpisać w pierwszej po komentarzu linii w check.py
+Jeżeli chcemy sprawdzić działanie naszego programu dla katalogu OFF_2 z testami w katalogach A, B, C,
+to należy umieścić w jednym katalogu pliki test_program.py, check.py, zad2.py oraz katalog OFF_2 i następnie uruchomić
+skrypt komendą
+
+python3 test_program.py OFF_2
+
+Po przejściu wszystkich testów program zwróci informację tego typu: ![image](https://user-images.githubusercontent.com/79122265/158371864-654c5add-4d14-41c9-86f4-205c1f9e4921.png)
+
 
 ## bash
 Możliwy błąd końca lini w skryptach bashowych.
