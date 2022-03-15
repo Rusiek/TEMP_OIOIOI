@@ -4,7 +4,7 @@ import re
 from time import time
 from subprocess import Popen, PIPE
 
-MAX_TIME        =   0.15
+MAX_TIME        =   1
 MAX_MEMORY      =   2 ** 20
 RAPORT_WRONG    =   5
 
