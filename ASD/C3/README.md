@@ -5,7 +5,7 @@ A: 100 małych testów sprawdzających działanie programu dla **n** z przedzia�
 
 B: 100 małych testów sprawdzających działanie programu dla **n** = 1000 oraz przedziałów [a, b], dla a, b z przedziału <1, 10^6>.
 
-C: 20 średnich testów sprawdzających działanie programu dla **n** = 10^4 oraz przedziałów [a, b], dla a, b z przedziału <1, 10^7>.
+C: 20 średnich testów sprawdzających działanie programu dla **n** = 2*10^4 oraz przedziałów [a, b], dla a, b z przedziału <1, 10^7>.
 
 D: 20 dużych testów sprawdzających działanie programu dla **n** = 2*10^5 oraz przedziałów [a, b], dla a, b z przedziału <1, 10^8>.
 
