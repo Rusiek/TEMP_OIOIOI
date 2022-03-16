@@ -1,6 +1,6 @@
 # OFF_2 - Testy
 
-A: 1000 małych testów sprawdzających działanie programu dla **n** z przedziału
+A: 100 małych testów sprawdzających działanie programu dla **n** z przedziału
 <1, 8> oraz przedziałów [a, b], dla a, b z przedziału <1, 9>.
 
 B: 100 małych testów sprawdzających działanie programu dla **n** = 1000 oraz przedziałów [a, b], dla a, b z przedziału <1, 10^6>.
