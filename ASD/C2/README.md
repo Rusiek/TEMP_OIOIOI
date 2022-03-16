@@ -1,8 +1,5 @@
 # OFF_1 - Testy
 
-W nawiasach na końcu każdego testu znajduje się najdłuższy czas wykonania testu w paczce, którego
-czas z załączonych w raz zadaniem testach wynosi 0.45s.
-
 A: 100 małych testów sprawdzających działanie programu dla listy odsyłaczowej o długości **n** z przedziału
 <1, 10> o argumentach będących losowymi liczbami całkowitymi z przedziału <-100, 100> oraz chaotycznością **k** będącą losową liczbą z przedziału <1, n>. Czas wykonania każdego z testów powinien być mniejszy niż 1s.
 
