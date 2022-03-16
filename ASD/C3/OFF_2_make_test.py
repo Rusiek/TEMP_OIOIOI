@@ -15,11 +15,11 @@ def gen_test(string, n, r):
     file.close()
 
 
-# test_num    =   1000
-# for i in range(test_num):
-#     length  =   random.randint(1, 8)
-#     r       =   9
-#     gen_test(f"OFF_2\\A\\OFF_2a{'{:0>3}'.format(str(i))}.in", length, r)
+test_num    =   100
+for i in range(test_num):
+    length  =   random.randint(1, 8)
+    r       =   9
+    gen_test(f"OFF_2\\A\\OFF_2a{'{:0>2}'.format(str(i))}.in", length, r)
         
 # test_num    =   100
 # for i in range(test_num):
@@ -27,14 +27,14 @@ def gen_test(string, n, r):
 #     r       =   10 ** 6
 #     gen_test(f"OFF_2\\B\\OFF_2b{'{:0>2}'.format(str(i))}.in", length, r)
 
-test_num    =   20
-for i in range(test_num):
-    length  =   10000
-    r       =   10 ** 7
-    gen_test(f"OFF_2\\C\\OFF_2c{'{:0>2}'.format(str(i))}.in", length, r)
+# test_num    =   20
+# for i in range(test_num):
+#     length  =   2 * 10 ** 4
+#     r       =   10 ** 7
+#     gen_test(f"OFF_2\\C\\OFF_2c{'{:0>2}'.format(str(i))}.in", length, r)
 
-test_num    =   20
-for i in range(test_num):
-    length  =   2 * 10 ** 5
-    r       =   10 ** 8
-    gen_test(f"OFF_2\\D\\OFF_2d{'{:0>2}'.format(str(i))}.in", length, r)
+# test_num    =   20
+# for i in range(test_num):
+#     length  =   2 * 10 ** 5
+#     r       =   10 ** 8
+#     gen_test(f"OFF_2\\D\\OFF_2d{'{:0>2}'.format(str(i))}.in", length, r)
