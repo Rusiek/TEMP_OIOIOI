@@ -1,3 +1,4 @@
+import pathlib
 import sys
 import os
 import re
@@ -71,6 +72,10 @@ def check_dir(path):
         for file in files:
             counter_path    =   str(path).count("\\")
             counter_file    =   str(os.path.join(root, file)).count("\\")
+            if counter_path == 0:
+                counter_path = str(path).count("/")
+            if counter_file == 0:
+                counter_file = str(os.path.join(root, file)).count("/")
             if counter_file - counter_path == 1:
                 start, end = time(), time()
                 while end - start > 1:
@@ -80,11 +85,11 @@ def check_dir(path):
                 # If file name is '.in$' 
                 if re.search(pattern, file):
                     # Run subprocess and prepare data
-                    print(f"TESTING FILE {os.path.join(root, file)}")
-                    proc    =   Popen(f'python check.py {str(os.path.join(root, file))}', stdout=PIPE)
+                    print(f"TESTING FILE {file}")
+                    proc    =   Popen(f'{sys.executable} check.py {str(os.path.join(root, file))}', stdout=PIPE, shell=True)
                     prog  =   proc.communicate()
                     prog  =   str(prog[0])
-                    prog  =   prog[2:-1].rsplit("\\r\\n")[:-1]
+                    prog  =   prog[2:-1].replace("\\r\\n", "\\n").rsplit("\\n")[:-1]
                     if prog[0] == "False":      prog[0] = False
                     else:                       prog[0] = True
                     prog[1], prog[2] = round(float(prog[1]), 3), int(prog[2])
@@ -108,8 +113,10 @@ def check_dir(path):
 # Core
 if __name__ == "__main__":
     for path in os.walk(sys.argv[1]):
-        if sys.argv[1] != path[0] and os.path.isdir(sys.argv[1]):
-            output  =   check_dir(path[0])
+        dir_str = os.path.join(pathlib.Path().resolve(), sys.argv[1])
+        if sys.argv[1] != path[0] and os.path.isdir(dir_str):
+            dir_str = os.path.join(pathlib.Path().resolve(), path[0])
+            output  =   check_dir(dir_str)
             if output[0] + output[1]:
                 clearConsole()
                 print(f"\nRAPORT FOR:       {path[0]}")
