@@ -1,4 +1,4 @@
-# OFF_# - Testy
+# OFF_3 - Testy
 
 A: 100 małych testów sprawdzających działanie programu dla **n** z przedziału <3, 8> 
 oraz **k** krotek (a, b, c), dla **k** z przedziału <1, 4>.
